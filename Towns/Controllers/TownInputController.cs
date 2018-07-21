@@ -27,7 +27,7 @@ namespace Towns.Controllers
         }
         [HttpPost]
         public RedirectToActionResult Index(TownViewModel town)
-        {
+        {  
             return RedirectToAction("Index", "Town");
         }
     }
