@@ -1,0 +1,28 @@
+﻿
+@using Microsoft.AspNetCore.Http;
+@model Towns.Models.Views.TownViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<form asp-controller="Town" asp-action="Index">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Header</th>
+                <th>Data Entry</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Enter Name: </td>
+                <td><input asp-for="Name" required /></td>
+            </tr>
+            <tr>
+                <td>Click to submit: </td>
+                <td><input type="submit" value="Find Town" /></td>
+            </tr>
+    </table>
+</form>
