@@ -11,13 +11,19 @@ namespace Towns.Models.Views
         public List<TownViewModel> allTowns { get; set; }
         public ShowTown(TownsContext context)
         {
+            allTowns = new List<TownViewModel>();
             foreach (var town in context.Sweden)
             {
                 allTowns.Add(new TownViewModel { ID = town.Id, Name = town.Town, Population = town.Population });
             }
         }
+        public ShowTown(TownViewModel Model)
+        {
 
-        
+        }
+
+
+
     }
     
 }

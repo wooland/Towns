@@ -1,11 +1,9 @@
-﻿@model Towns.Models.Views.ShowTown
+﻿@model Towns.Models.Views.TownViewModel
 @{
     ViewData["Title"] = "Index";
 }
-@foreach (var town in Model.allTowns)
-{
-    <h2>@town.Name has a population of @town.Population</h2>
-}
-<h2>I Malme bor 341 457 pers</h2>
+
+
+<h2>I @Model.Name bor @Model.Population pers</h2>
 
 
