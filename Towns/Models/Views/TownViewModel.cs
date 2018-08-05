@@ -17,7 +17,7 @@ namespace Towns.Models.Views
                 /*  Use for Eager Loading commented because we r Lazy!
                  *  .Include(i => i.EmployeeTerritories)
                   .ThenInclude(i => i.Territory) **/
-                .Where(s => s.Town.StartsWith(town.Name))
+                .Where(s => s.Town.StartsWith(town.Name.ToLower()))
                 .FirstOrDefault();
 
             return sweTown;

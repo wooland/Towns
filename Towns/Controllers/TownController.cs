@@ -17,7 +17,10 @@ namespace Towns.Controllers
         {
             //ReadListFromFile();
             Sweden ValTown = town.ValidateTown(town, context);
-            ShowTown towns = new ShowTown(context);
+            //ShowTown towns = new ShowTown(context);
+
+            if(ValTown == null)
+                return View(new TownViewModel { Name = "Atlantis", Population = 0, ID = 666 });
 
             return View(new TownViewModel {Name = ValTown.Town, Population = ValTown.Population, ID = ValTown.Id });
         }

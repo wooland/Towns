@@ -7,6 +7,8 @@ namespace Towns.Models.Data
     public partial class TownsContext : DbContext
     {
         public virtual DbSet<Sweden> Sweden { get; set; }
+
+        public virtual DbSet<World> World { get; set; }
         public TownsContext()
         {
         }

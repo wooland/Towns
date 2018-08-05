@@ -1,0 +1,16 @@
+﻿@model Towns.Models.Views.SimpleLocation
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="jumbotron">
+    <h2>Du är i @Model.Name här bor @Model.Population personer</h2>
+</div>
+<div class="container">
+    Lat: @Model.DDLatitude <br />
+    Long: @Model.DDLongitude
+
+</div>
+
+

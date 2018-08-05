@@ -1,0 +1,66 @@
+﻿@using Microsoft.AspNetCore.Http;
+@model Towns.Models.Views.SimpleLocation
+@{
+    ViewData["Title"] = "Index";
+}
+
+<html>
+<body>
+
+
+
+
+
+
+    <script>
+
+
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            }
+        }
+
+        function showPosition(position) {
+
+            document.getElementById("lat").value = position.coords.latitude;
+            document.getElementById("long").value = position.coords.longitude;
+        }
+    </script>
+    <table class="table">
+        <thead>
+            <tr>
+                <th><button onclick="getLocation()">Find me</button></th>
+                </tr>
+            </thead>
+        </table>
+               
+
+                <form asp-controller="SimpleLoc" asp-action="Index">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Header</th>
+                                <th>Data Entry</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Enter lat: </td>
+
+                                <td><input asp-for="DDLatitude" id="lat" /></td>
+                            </tr>
+                            <tr>
+                                <td id="beta">Enter long: </td>
+                                <td><input asp-for="DDLongitude" id="long" /></td>
+                            </tr>
+                            <tr>
+                                <td>Click to submit:</td>
+                                <td><input type="submit" value="Find Town" /></td>
+                            </tr>
+                    </table>
+                </form>
+                <p id="demo"></p>
+</body>
+</html>
+

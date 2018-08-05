@@ -1,0 +1,83 @@
+﻿@using Microsoft.AspNetCore.Http;
+@model Towns.Models.Views.SimpleLocation
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!DOCTYPE html>
+<html>
+<body>
+
+    @*<p>Click the button to get your coordinates.</p>
+
+        <button onclick="getLocation()">Try It</button>
+
+        <p id="demo"></p>*@
+
+    <form asp-controller="WorldTown" asp-action="Index">
+        <input asp-for="DDLatitude" type="hidden" value=a />
+        <input asp-for="DDLongitude" type="hidden" value=b />
+        <input type="submit" value="Find Town" />
+    </form>
+
+    <script>
+        var a;
+        var b;
+        //Runs teh function on pageload
+        $(document).on("pageload", function () {
+            var lat = document.getElementById("demo");
+            var long = document.getElementById("Longitude");
+
+
+        });
+
+
+
+        var x = document.getElementById("demo");
+
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                x.innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+
+        function showPosition(position) {
+            x.innerHTML = "Latitude: " + position.coords.latitude +
+                "<br>Longitude: " + position.coords.longitude;
+
+            a = position.coords.latitude;
+            b = position.coords.longitude;
+        }
+    </script>
+    <script>x.textContent</script>
+
+
+    <form asp-controller="Town" asp-action="Index">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Header</th>
+                    <th>Data Entry</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Enter DD Latitude: <script>position.coords.latitude;</script></td>
+                    <td><input asp-for="DDLatitude" required /><script>position.coords.latitude;</script></td>
+                </tr>
+                <tr>
+                    <td>Enter DD Longitude: <script>b;</script> </td>
+                    <td><input asp-for="DDLongitude" id="Longitude" required /><script>b;</script></td>
+                </tr>
+                <tr>
+                    <td>Click to submit: </td>
+                    <td><input type="button" value="Find Town" /></td>
+                </tr>
+</table>
+    </form>
+
+</body>
+</html>
+
